@@ -1,0 +1,53 @@
+This code uses the PIL library for image processing.
+If PIL is not installed, refer to the link below for installation instructions
+(https://pillow.readthedocs.io/en/stable/)
+
+What lines to change, if any
+---------------------------
+Line 9:
+Choose the image file you want to import. I used the MarioMap as "MarioMap.png"
+The image should be in the same directory as this python code
+
+Line 118 and 119:
+This represents the noise in observer movement. Currently set to +/-40.
+This can be adjusted as needed.
+
+Line 133 and 134:
+This represents the noise in particle movement. Currently set to +/-40.
+This can be adjusted as needed.
+
+Line 184:
+This sets the number of particles. Currently at 1 for every 10 pixels but can be changed.
+
+Line 154:
+This determines the criterion for what a "large" particle is, currently set at 
+1.05 times the average weight value of all the particles.
+This can be adjusted as needed.
+(If too high, there may not be any particles classified as "large". If too low, too many
+particles would be classified as "large")
+
+Line 202:
+Defines the amount of time steps i.e. how many times to run the particle filter loop.
+
+Line 207:
+Optional. This is currently commented out.
+This line shows the Map after reassigning weights to all particles.
+
+Line 209:
+Optional. This is currently commented out.
+This line shows the Map after resampling the particles.
+----------------------------------------------------------------------
+
+After going through the lines above, the code should run fine as is.
+
+The code:
+	Finds origin and places the observer and particles randomly
+	Updates particle weights based on what the particles see
+	Resamples by moving small particles to larger ones	
+	Moves observer and particles a given distance (with added noise)
+	Repeats
+
+Each time the map is updated (after movement step) it will be displayed as a new image
+Red dots represent the particles and the blue square represents the observer location as well as
+the image that it sees at any given time.
+
