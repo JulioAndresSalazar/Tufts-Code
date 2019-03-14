@@ -83,7 +83,7 @@ def weightUpdate(particleArray,coordinates):
         #refMap.show() #Shows image at each particle. NOT Recommended
         imageDiff = compare(refMap,obsMap) #lower image difference  = better match
         #print('imageDiff: ' , imageDiff) #OPTIONAL
-        scaling = 18750 #scaling factor to make weights manageable  
+        scaling = 20000#18750 #scaling factor to make weights manageable  
         i[2] = scaling/(imageDiff/maxDiff) 
     return particleArray
 
@@ -183,7 +183,7 @@ def lastLoop(map, origin, box_1, resampled_array):
     origin = movement_vector
     return (movement_vector, moved_array)
         
-numParticles = 400#range[0]/10 #one particle for every 10 pixels, can be adjusted
+numParticles = range[0]/10 #one particle for every 10 pixels, can be adjusted
 
 #START OF CODE#
 
@@ -201,7 +201,7 @@ time.sleep(2)
 #END OF INITIAL STEP#
 
 #START OF PARTICLE FILTER ALGORITHM
-time_steps = 15 #choose the amount of time steps to run for 
+time_steps = 8 #choose the amount of time steps to run for 
 i = 0
 while i < time_steps:
     weighted_array = (weightUpdate(particle_Array, origin)) #update weight based on where particles are 
