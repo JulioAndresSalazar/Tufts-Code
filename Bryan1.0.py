@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+#ev3 setup
 ev3 = Device("this")
-def manageRange(n):
-	return max(min(n,1050),-1050)
+
 def main():
 	#2 = Blue
 	#3 = Green
@@ -18,7 +17,6 @@ def main():
 	sensor_array = [0, 0, 0, 0]
 	motorB = ev3.LargeMotor('outD')
 	motorC = ev3.LargeMotor('outC')
-#read each sensor and store in first array
 	sensor_1 = ev3.ColorSensor('in1').color
 	print(sensor_1)
 	sensor_array[0] = sensor_1
@@ -54,7 +52,7 @@ def main():
 		motorB.run_forever(speed_sp = 200,stop_action="brake")
 		motorC.run_forever(speed_sp = 200,stop_action="brake")
 		sleep(1)
-if __name__ == '__main__':
-	main()
+		
+main()
 
 
